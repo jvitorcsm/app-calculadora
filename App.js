@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import {View, Text, Button, TextInput} from 'react-native'; 
+import {View, Text, Pressable, TextInput} from 'react-native'; 
+import style from './App.style'
 
 export default function App() {
 
@@ -25,25 +26,34 @@ export default function App() {
 
   return (
 
-    <View>
-      <Text>Calculadora</Text>
-      <Text> </Text>
+    <View style={style.container}>
+    
+      <Text style={style.titulo}>Calculadora</Text>
+      
 
-      <TextInput value={valorA} onChangeText={(textValorA) => setValorA(Number(textValorA))} />
+      <TextInput style={style.input} value={valorA} onChangeText={(textValorA) => setValorA(Number(textValorA))} />
 
-      <TextInput value={valorB} onChangeText={(textValorB) => setValorB(Number(textValorB))}/>
+      <TextInput style={style.input} value={valorB} onChangeText={(textValorB) => setValorB(Number(textValorB))} />
 
-      <Text> </Text>
-      <Button title="Somar" onPress={somar}/>
-      <Text> </Text>
-      <Button title="Subtrair" onPress={subtrair}/>
-      <Text> </Text>
-      <Button title="Multiplicar" onPress={multiplicar}/>
-      <Text> </Text>
-      <Button title="Dividir" onPress={dividir}/>
-      <Text> </Text>
+      <Text style={style.resultado}> Resultado = {resultado} </Text>
 
-      <Text> Resultado: {resultado} </Text>
+      
+      <Pressable style={style.button} onPress={somar} > 
+      <Text> somar </Text> 
+      </Pressable>
+      
+      <Pressable style={style.button} onPress={subtrair} > 
+      <Text >subtrair </Text> 
+      </Pressable>
+      
+      <Pressable style={style.button} onPress={multiplicar} > 
+      <Text >multiplicar </Text> 
+      </Pressable>
+      
+      <Pressable style={style.button} onPress={dividir} > 
+      <Text> dividir </Text> 
+      </Pressable>
+      
     </View>
   );
 
